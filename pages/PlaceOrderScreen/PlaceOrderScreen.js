@@ -1,10 +1,14 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
 
-function PlaceOrder() {
+function PlaceOrder({navigation}) {
   return (
     <View>
       <Text style={{ fontSize: 14, fontWeight: 'bold' }}>Place Order</Text>
+      <Button
+        title="Go to View Orders"
+        onPress={() => navigation.navigate('View')}
+      />
     </View>
   );
 }
