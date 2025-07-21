@@ -20,14 +20,8 @@ const styles = StyleSheet.create({
   left: 20,
   right: 20,
 
-   
- // marginTop: 'auto',
- // marginBottom: 16,
 },
 
-  // Button:{
-  //   color:'ffffff'
-  // }
 });
 
 export default styles;

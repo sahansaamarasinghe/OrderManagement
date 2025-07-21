@@ -13,7 +13,7 @@ function ViewOrder({ navigation }) {
         const res = await getGuestOrders();
         //console.log(res)
         setOrders(res.data);
-        console.log(res.data)
+        //console.log(res.data)
       } catch (err) {
         console.error("Error fetching guest orders", err);
       }
@@ -54,7 +54,6 @@ function ViewOrder({ navigation }) {
       <View style={styles.buttonContainer}>
         <Button title="Go to Place Orders" onPress={() => navigation.navigate('Order')} />
       </View>
-      
         
     </View>
   );

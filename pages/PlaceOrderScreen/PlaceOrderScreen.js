@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Button, TextInput } from 'react-native';
+import { View, Text, Button} from 'react-native';
 import styles from './Style';
 import { placeOrder } from '../../api/orderApi';
 
@@ -9,35 +9,10 @@ const PlaceOrder = ({ navigation }) => {
   const [foodItemId, setFoodItemId] = useState('');
   const [quantity, setQuantity] = useState('');
 
- // const handleSubmit = async () => {
- 
-
-  //   try {
-  //     const items = [
-  //       { foodItemId: parseInt(foodItemId), quantity: parseInt(quantity) },
-  //     ];
-  //     //console.log('log6');
-  //     console.log('items', items);
-  //     await placeOrder(items);
-  //    // console.log('log2');
-  //     alert('Order placed!');
-  //     console.log('log5');
-  //   } catch (err) {
-  //     //console.log('log1');
-  //     alert(err.response?.data?.message);
-  //     //alert(err.response?.data?.message || 'Something went wrong');
-  //   }
-  // };
-
-
-
-
-
     const handleSubmit = async () => {
     const parsedFoodItemId = parseInt(foodItemId);
     const parsedQuantity = parseInt(quantity);
 
-    
     if (!foodItemId || !quantity) {
       alert('Please enter both Food Item ID and Quantity.');
       return;
@@ -82,11 +57,7 @@ const PlaceOrder = ({ navigation }) => {
       />
 
       <Button title="Submit Order" onPress={handleSubmit} />
-{/* 
-      <Button
-        title="View My Orders"
-        onPress={() => navigation.navigate('View')}
-      /> */}
+
       <View style={styles.buttonContainer}>
         <Button title="View My Orders"
         onPress={() => navigation.navigate('View')} />
