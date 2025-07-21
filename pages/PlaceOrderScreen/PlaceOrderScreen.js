@@ -16,8 +16,10 @@ const PlaceOrder = ({ navigation }) => {
       ];
       console.log("items",items)
       await placeOrder(items);
+      //console.log("log2")
       alert('Order placed!');
     } catch (err) {
+      //console.log("log1")
       alert(err.response?.data?.message || 'Something went wrong');
     }
   };
