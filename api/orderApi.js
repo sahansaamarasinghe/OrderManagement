@@ -6,9 +6,10 @@ import axios from 'axios';
 const API_URL = 'http://10.0.0.128:5132/api/order';
 
 export const placeOrder = async (items) => {
-  //console.log("log3")
+  //.log("log3")
   console.log(API_URL)
   return axios.post(`${API_URL}`, { items });
+  
 };
 
 export const getGuestOrders = async () => {

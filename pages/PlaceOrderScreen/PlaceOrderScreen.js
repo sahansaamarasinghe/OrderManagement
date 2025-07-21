@@ -7,57 +7,60 @@ import CustomInput from '../../components/CustomInput';
 
 const PlaceOrder = ({ navigation }) => {
   const [foodItemId, setFoodItemId] = useState('');
-  const [quantity, setQuantity] = useState(''); 
+  const [quantity, setQuantity] = useState('');
 
-  const handleSubmit = async () => {
+ // const handleSubmit = async () => {
+ 
+
+  //   try {
+  //     const items = [
+  //       { foodItemId: parseInt(foodItemId), quantity: parseInt(quantity) },
+  //     ];
+  //     //console.log('log6');
+  //     console.log('items', items);
+  //     await placeOrder(items);
+  //    // console.log('log2');
+  //     alert('Order placed!');
+  //     console.log('log5');
+  //   } catch (err) {
+  //     //console.log('log1');
+  //     alert(err.response?.data?.message);
+  //     //alert(err.response?.data?.message || 'Something went wrong');
+  //   }
+  // };
+
+
+
+
+
+    const handleSubmit = async () => {
+    const parsedFoodItemId = parseInt(foodItemId);
+    const parsedQuantity = parseInt(quantity);
+
+    
+    if (!foodItemId || !quantity) {
+      alert('Please enter both Food Item ID and Quantity.');
+      return;
+    }
+
+    if (isNaN(parsedFoodItemId) || isNaN(parsedQuantity)) {
+      alert('Food Item ID and Quantity must be valid numbers.');
+      return;
+    }
+
     try {
       const items = [
-        { foodItemId: parseInt(foodItemId), quantity: parseInt(quantity) },
+        { foodItemId: parsedFoodItemId, quantity: parsedQuantity }
       ];
-      console.log("items",items)
+
       await placeOrder(items);
       //console.log("log2")
       alert('Order placed!');
     } catch (err) {
-      
-      //console.log("log1")
-      alert(err.response?.data?.message );
-      //alert(err.response?.data?.message || 'Something went wrong');
+
+      alert(err?.response?.data?.message || 'Something went wrong. Please try again.');
     }
   };
-
-
-
-
-//   const handleSubmit = async () => {
-//   const parsedFoodItemId = parseInt(foodItemId);
-//   const parsedQuantity = parseInt(quantity);
-
-//   // Empty field check
-//   if (!foodItemId || !quantity) {
-//     alert('Please enter both Food Item ID and Quantity.');
-//     return;
-//   }
-
-//   if (isNaN(parsedFoodItemId) || isNaN(parsedQuantity)) {
-//     alert('Food Item ID and Quantity must be valid numbers.');
-//     return;
-//   }
-
-//   try {
-//     const items = [
-//       { foodItemId: parsedFoodItemId, quantity: parsedQuantity }
-//     ];
-
-//     await placeOrder(items); 
-//     console.log("log2")
-//     alert('Order placed!');
-//   } catch (err) {
-
-//     alert(err?.response?.data?.message || 'Something went wrong. Please try again.');
-//   }
-// };
-
 
   return (
     <View style={styles.container}>
@@ -79,11 +82,15 @@ const PlaceOrder = ({ navigation }) => {
       />
 
       <Button title="Submit Order" onPress={handleSubmit} />
-
+{/* 
       <Button
         title="View My Orders"
         onPress={() => navigation.navigate('View')}
-      />
+      /> */}
+      <View style={styles.buttonContainer}>
+        <Button title="View My Orders"
+        onPress={() => navigation.navigate('View')} />
+      </View>
     </View>
   );
 };

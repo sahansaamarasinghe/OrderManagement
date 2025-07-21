@@ -24,16 +24,16 @@ function ViewOrder({ navigation }) {
 
  const renderOrder = ({ item }) => (
   <View style={styles.card}>
-    <Text>Order ID: {item?.orderId ?? 'N/A'}</Text>
-    <Text>Total: ${item?.totalAmount?.toFixed(2) ?? '0.00'}</Text>
-    <Text>Date: {item?.orderDate ? new Date(item.orderDate).toLocaleString() : 'Unknown'}</Text>
-    <Text>Items:</Text>
+    <Text style={styles.text}>Order ID: {item?.orderId ?? 'N/A'}</Text>
+    <Text style={styles.text}>Total: Rs. {item?.totalAmount?.toFixed(2) ?? '0.00'}</Text>
+    <Text style={styles.text}>Date: {item?.orderDate ? new Date(item.orderDate).toLocaleString() : 'Unknown'}</Text>
+    <Text style={styles.text}>Items:</Text>
     {Array.isArray(item.items) && item.items.length > 0 ? (
       item.items.map((entry, idx) => (
-        <Text key={idx}>- {entry}</Text>
+        <Text style={styles.text} key={idx}>- {entry}</Text>
       ))
     ) : (
-      <Text>- No items found</Text>
+      <Text style={styles.text}>- No items found</Text>
     )}
   </View>
 );
@@ -51,7 +51,11 @@ function ViewOrder({ navigation }) {
       ) : (
         <Text>No orders found.</Text>
       )}
-      <Button title="Go to Place Orders" onPress={() => navigation.navigate('Order')} />
+      <View style={styles.buttonContainer}>
+        <Button title="Go to Place Orders" onPress={() => navigation.navigate('Order')} />
+      </View>
+      
+        
     </View>
   );
 }
