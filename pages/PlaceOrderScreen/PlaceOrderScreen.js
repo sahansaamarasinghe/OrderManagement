@@ -19,10 +19,45 @@ const PlaceOrder = ({ navigation }) => {
       //console.log("log2")
       alert('Order placed!');
     } catch (err) {
+      
       //console.log("log1")
-      alert(err.response?.data?.message || 'Something went wrong');
+      alert(err.response?.data?.message );
+      //alert(err.response?.data?.message || 'Something went wrong');
     }
   };
+
+
+
+
+//   const handleSubmit = async () => {
+//   const parsedFoodItemId = parseInt(foodItemId);
+//   const parsedQuantity = parseInt(quantity);
+
+//   // Empty field check
+//   if (!foodItemId || !quantity) {
+//     alert('Please enter both Food Item ID and Quantity.');
+//     return;
+//   }
+
+//   if (isNaN(parsedFoodItemId) || isNaN(parsedQuantity)) {
+//     alert('Food Item ID and Quantity must be valid numbers.');
+//     return;
+//   }
+
+//   try {
+//     const items = [
+//       { foodItemId: parsedFoodItemId, quantity: parsedQuantity }
+//     ];
+
+//     await placeOrder(items); 
+//     console.log("log2")
+//     alert('Order placed!');
+//   } catch (err) {
+
+//     alert(err?.response?.data?.message || 'Something went wrong. Please try again.');
+//   }
+// };
+
 
   return (
     <View style={styles.container}>
